@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lombok Wanderlust - Paket Wisata Eksklusif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ac978236-d0b0-4b12-b23a-aad01307bfab.png') no-repeat center center;
+            background-size: cover;
+        }
+        .active-tab {
+            border-bottom: 3px solid #3b82f6;
+            color: #3b82f6;
+        }
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+        }
+        .chat-btn {
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        .chat-btn:hover {
+            transform: scale(1.1);
+        }
+        .chat-options {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .chat-widget:hover .chat-options {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex items-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e64f99bc-5399-478e-a5cf-0c267d5d1a87.png" alt="Lombok Wanderlust Logo" class="h-10 mr-3">
+                    <h1 class="text-2xl font-bold text-blue-600 hidden md:block">Lombok Wanderlust</h1>
+                </div>
+                <nav class="ml-10 hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="#" class="font-medium hover:text-blue-600">Beranda</a></li>
+                        <li><a href="#" class="font-medium hover:text-blue-600">Paket Wisata</a></li>
+                        <li><a href="#" class="font-medium hover:text-blue-600">Gallery</a></li>
+                        <li><a href="#" class="font-medium hover:text-blue-600">Blog</a></li>
+                        <li><a href="#" class="font-medium hover:text-blue-600">Tentang Kami</a></li>
+                        <li><a href="#" class="font-medium hover:text-blue-600">Kontak</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <button class="md:hidden">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section (Simplified) -->
+    <section class="hero-section text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Temukan Pengalaman Wisata Terbaik di Lombok</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Jelajahi keindahan Lombok dengan paket wisata eksklusif kami</p>
+        </div>
+    </section>
+
+    <!-- Popular Packages -->
+    <section class="container mx-auto px-4 py-12">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-3xl font-bold mb-6">Paket Unggulan</h2>
+            <p class="text-lg text-gray-600 mb-6 max-w-3xl">Pilihan paket wisata terbaik untuk pengalaman tak terlupakan di Lombok</p>
+            <div class="flex space-x-2 overflow-x-auto mb-6">
+                <button class="px-4 py-2 bg-blue-600 text-white rounded-full text-sm">Semua</button>
+                <button class="px-4 py-2 bg-gray-200 rounded-full text-sm">Pantai</button>
+                <button class="px-4 py-2 bg-gray-200 rounded-full text-sm">Gunung</button>
+                <button class="px-4 py-2 bg-gray-200 rounded-full text-sm">Budaya</button>
+                <button class="px-4 py-2 bg-gray-200 rounded-full text-sm">Adventure</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Package 1 -->
+            <div class="package-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                <div class="relative">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9853ce4b-1daa-4c95-8240-2cced8906eff.png" alt="Pantai pink Lombok dengan air jernih kebiruan dan pasir kemerahan, perahu tradisional di pinggir pantai" class="w-full h-48 object-cover">
+                    <div class="absolute top-2 right-2 bg-yellow-400 text-white px-2 py-1 rounded-full text-xs font-bold">
+                        <i class="fas fa-star"></i> 4.9
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-bold mb-2">Eksplorasi Pantai Pink Lombok</h3>
+                    <div class="flex items-center text-gray-600 mb-3">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>Pantai Pink, Lombok Timur</span>
+                    </div>
+                    <div class="flex items-center text-gray-600 mb-3">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>2 Hari 1 Malam</span>
+                    </div>
+                    <div class="mb-4">
+                        <span class="line-through text-gray-400">Rp1.500.000</span>
+                        <span class="text-xl font-bold text-blue-600 ml-2">Rp1.200.000</span>
+                        <span class="text-green-600 text-sm ml-2">(20% off)</span>
+                    </div>
+                    <button class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Pesan Sekarang</button>
+                </div>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="package-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                <div class="relative">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5db74a24-7b1e-4fb2-8148-7eb174c21d0c.png" alt="Pemandangan Gunung Rinjani dari ketinggian dengan awan putih dan vegetasi hijau subur" class="w-full h-48 object-cover">
+                    <div class="absolute top-2 right-2 bg-yellow-400 text-white px-2 py-1 rounded-full text-xs font-bold">
+                        <i class="fas fa-star"></i> 4.8
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-bold mb-2">Pendakian Gunung Rinjani 3D2N</h3>
+                    <div class="flex items-center text-gray-600 mb-3">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>Gunung Rinjani, Lombok</span>
+                    </div>
+                    <div class="flex items-center text-gray-600 mb-3">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>3 Hari 2 Malam</span>
+                    </div>
+                    <div class="mb-4">
+                        <span class="text-xl font-bold text-blue-600">Rp2.800.000</span>
+                    </div>
+                    <button class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Pesan Sekarang</button>
+                </div>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="package-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                <div class="relative">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c883f8b5-688c-4d34-b63b-950441a77b52.png" alt="Desa tradisional Sasak dengan rumah-rumah beratap jerami dan pemandangan sawah terasering" class="w-full h-48 object-cover">
+                    <div class="absolute top-2 right-2 bg-yellow-400 text-white px-2 py-1 rounded-full text-xs font-bold">
+                        <i class="fas fa-star"></i> 4.7
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-bold mb-2">Wisata Budaya Desa Sasak</h3>
+                    <div class="flex items-center text-gray-600 mb-3">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>Desa Sade, Lombok Tengah</span>
+                    </div>
+                    <div class="flex items-center text-gray-600 mb-3">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>1 Hari</span>
+                    </div>
+                    <div class="mb-4">
+                        <span class="text-xl font-bold text-blue-600">Rp450.000</span>
+                    </div>
+                    <button class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Pesan Sekarang</button>
+                </div>
+            </div>
+            
+            <!-- Additional Packages (4-15) -->
+            <!-- Package 4 -->
+            <div class="package-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                <div class="relative">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0b2b5ba6-ec76-4707-9f4e-8cbc5dd640df.png" alt="Pulau Gili Trawangan dengan pasir putih dan ombak tenang" class="w-full h-48 object-cover">
+                    <div class="absolute top-2 right-2 bg-yellow-400 text-white px-2 py-1 rounded-full text-xs font-bold">
+                        <i class="fas fa-star"></i> 4.8
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-bold mb-2">Escape ke Gili Trawangan</h3>
+                    <div class="flex items-center text-gray-600 mb-3">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>Gili Trawangan, Lombok</span>
+                    </div>
+                    <div class="flex items-center text-gray-600 mb-3">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>3 Hari 2 Malam</span>
+                    </div>
+                    <div class="mb-4">
+                        <span class="text-xl font-bold text-blue-600">Rp2.500.000</span>
+                    </div>
+                    <button class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Pesan Sekarang</button>
+                </div>
+            </div>
+
+            <!-- Package 5 -->
+            <div class="package-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                <div class="relative">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c6ec6dee-0e6f-41a0-85f2-9a4f9cad6734.png" alt="Snorkeling di Gili Meno dengan terumbu karang" class="w-full h-48 object-cover">
+                    <div class="absolute top-2 right-2 bg-yellow-400 text-white px-2 py-1 rounded-full text-xs font-bold">
+                        <i class="fas fa-star"></i> 4.7
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-bold mb-2">Snorkeling 3 Gili</h3>
+                    <div class="flex items-center text-gray-600 mb-3">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>Gili Islands, Lombok</span>
+                    </div>
+                    <div class="flex items-center text-gray-600 mb-3">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>1 Hari</span>
+                    </div>
+                    <div class="mb-4">
+                        <span class="text-xl font-bold text-blue-600">Rp650.000</span>
+                    </div>
+                    <button class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Pesan Sekarang</button>
+                </div>
+            </div>
+
+            <!-- Package 6 -->
+            <div class="package-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                <div class="relative">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1d5b29c7-6bab-4ee3-bc33-a79b8268a251.png" alt="Pemandangan Air Terjun Tiu Kelep yang megah" class="w-full h-48 object-cover">
+                    <div class="absolute top-2 right-2 bg-yellow-400 text-white px-2 py-1 rounded-full text-xs font-bold">
+                        <i class="fas fa-star"></i> 4.6
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-bold mb-2">Tour Air Terjun Lombok</h3>
+                    <div class="flex items-center text-gray-600 mb-3">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>Air Terjun Tiu Kelep</span>
+                    </div>
+                    <div class="flex items-center text-gray-600 mb-3">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>1 Hari</span>
+                    </div>
+                    <div class="mb-4">
+                        <span class="text-xl font-bold text-blue-600">Rp400.000</span>
+                    </div>
+                    <button class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Pesan Sekarang</button>
+                </div>
+            </div>
+
+            </div>
+
+        <div class="text-center mt-10">
+            <button class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium">Lihat Paket Lainnya</button>
+        </div>
+    </section>
+
+    <!-- Destination Descriptions -->
+    <section class="container mx-auto px-4 py-12 bg-gray-50">
+        <h2 class="text-3xl font-bold text-center mb-8">Jelajahi Destinasi Wisata Unggulan Di Lombok</h2>
+        <p class="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">Setiap destinasi menawarkan pengalaman berbeda untuk liburan tak terlupakan di pulau Lombok</p>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Pantai Pink -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9853ce4b-1daa-4c95-8240-2cced8906eff.png" alt="Pantai Pink Lombok" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-4">Pantai Pink Lombok</h3>
+                    <div class="flex items-center text-gray-500 mb-3">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>Lombok Timur</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">Pantai dengan pasir berwarna merah muda yang unik terbentuk dari serpihan karang merah. Air lautnya jernih kebiruan dengan spot snorkeling menarik dan pemandangan sunset yang memukau.</p>
+                    <div class="mb-6">
+                        <p class="font-medium mb-2">Fasilitas:</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Warung makan seafood segar</li>
+                            <li>Area parkir luas</li>
+                            <li>Toilet umum</li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Pasir Merah Muda</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Snorkeling</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Sunset</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Fotogenik</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rinjani -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5db74a24-7b1e-4fb2-8148-7eb174c21d0c.png" alt="Gunung Rinjani" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-4">Gunung Rinjani</h3>
+                    <div class="flex items-center text-gray-500 mb-3">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>Lombok Utara</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">Gunung berapi aktif dengan ketinggian 3.726 mdpl. Menawarkan pemandangan spektakuler termasuk danau Segara Anak yang terkenal dan sumber air panas alami di kawah.</p>
+                    <div class="mb-6">
+                        <p class="font-medium mb-2">Fasilitas:</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Pemandu profesional</li>
+                            <li>Tenda dan peralatan kemping</li>
+                            <li>Portal pendakian resmi</li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Pendakian</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Pemandangan</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Kemping</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Danau Kawah</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="container mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold text-center mb-8">Apa Kata Mereka?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="flex items-center mb-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5135c4ce-ad5c-45b9-bc6f-743ee0a94d31.png" alt="Foto profil wanita muda tersenyum dengan latar belakang pantai" class="w-12 h-12 rounded-full object-cover">
+                    <div class="ml-3">
+                        <h4 class="font-bold">Dian Sastrowardoyo</h4>
+                        <div class="flex text-yellow-400 text-sm">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-600">"Pengalaman mendaki Rinjani bersama Lombok Wanderlust luar biasa! Pemandu profesional dan perlengkapan lengkap. Pasti akan kembali lagi!"</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="flex items-center mb-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f499b688-fb4e-49a7-a01a-1292abc7da57.png" alt="Foto profil pria dewasa memakai kacamata dengan latar perkotaan" class="w-12 h-12 rounded-full object-cover">
+                    <div class="ml-3">
+                        <h4 class="font-bold">Budi Santoso</h4>
+                        <div class="flex text-yellow-400 text-sm">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-600">"Paket wisata budaya ke Desa Sasak sangat informatif. Kami belajar banyak tentang kehidupan masyarakat lokal. Terima kasih Lombok Wanderlust!"</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="flex items-center mb-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f598ebb1-e426-4397-859c-4e6737872a29.png" alt="Foto profil pasangan muda berfoto bersama dengan latar sunset" class="w-12 h-12 rounded-full object-cover">
+                    <div class="ml-3">
+                        <h4 class="font-bold">Rina & Andi</h4>
+                        <div class="flex text-yellow-400 text-sm">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-600">"Paket bulan madu ke Gili Trawangan sangat sempurna! Akomodasi bagus dan transportasi lancar. Sangat direkomendasikan!"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b5788ea6-484c-4bb1-b050-d80a14be4e05.png" alt="Lombok Wanderlust Logo" class="h-8 mr-2">
+                        <h3 class="text-xl font-bold">Lombok Wanderlust</h3>
+                    </div>
+                    <p class="text-gray-400">Menyediakan paket wisata terbaik di Lombok dengan pengalaman tak terlupakan.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Tautan Cepat</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Beranda</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Paket Wisata</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Gallery</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li> 
+                        <li><a href="#" class="text-gray-400 hover:text-white">Tentang Kami</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Kontak</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Kontak Kami</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Jl. Pariwisata No. 123, Mataram, Lombok</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span>+62 812-3456-7890</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>info@lombokwanderlust.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Media Sosial</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Lombok Wanderlust. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+<!-- WhatsApp, Telegram & Live Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-options">
+            <a href="https://wa.me/6281234567890" target="_blank" class="chat-btn bg-[#25D366]" title="WhatsApp">
+                <i class="fab fa-whatsapp text-2xl"></i>
+            </a>
+            <a href="https://t.me/lombokwanderlust" target="_blank" class="chat-btn bg-[#0088cc]" title="Telegram">
+                <i class="fab fa-telegram text-2xl"></i>
+            </a>
+            <button onclick="showLiveChat()" class="chat-btn bg-blue-600" title="Live Chat">
+                <i class="fas fa-comment-dots text-2xl"></i>
+            </button>
+        </div>
+        <button class="chat-btn bg-blue-600">
+            <i class="fas fa-headset text-2xl"></i>
+        </button>
+    </div>
+
+    <!-- Live Chat Popup -->
+    <div id="liveChatModal" class="hidden fixed bottom-20 right-4 w-72 bg-white rounded-lg shadow-xl z-50">
+        <div class="bg-blue-600 text-white p-3 rounded-t-lg flex justify-between items-center">
+            <h3 class="font-bold">Live Chat</h3>
+            <button onclick="hideLiveChat()" class="text-white">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="p-3 max-h-80 overflow-y-auto">
+            <p class="text-gray-600">Selamat datang di Lombok Wanderlust! Silakan chat dengan kami.</p>
+            <div class="mt-3">
+                <input type="text" placeholder="Ketik pesan Anda..." class="w-full px-3 py-2 border rounded">
+                <button class="mt-2 w-full bg-blue-600 text-white py-2 rounded">Kirim</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLiveChat() {
+            document.getElementById('liveChatModal').classList.remove('hidden');
+        }
+        function hideLiveChat() {
+            document.getElementById('liveChatModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
