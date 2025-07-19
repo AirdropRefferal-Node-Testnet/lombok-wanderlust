@@ -1,48 +1,113 @@
-// Mobile menu toggle
+// script.js
 document.addEventListener('DOMContentLoaded', function() {
-  const mobileMenuButton = document.querySelector('.md\\:hidden');
-  const mobileMenu = document.querySelector('nav ul');
-  
-  mobileMenuButton.addEventListener('click', function() {
-    mobileMenu.classList.toggle('hidden');
+  // Contact form fake submit
+  document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const messageElement = document.getElementById('form-message');
+    if (messageElement) {
+      messageElement.classList.remove('hidden');
+      setTimeout(() => messageElement.classList.add('hidden'), 5000);
+    }
+    this.reset();
   });
 
-  // Package category filter
-  const filterButtons = document.querySelectorAll('.filter-button');
-  const packageCards = document.querySelectorAll('.package-card');
+  // Mobile Menu Toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
   
-  filterButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const filterValue = this.getAttribute('data-filter');
-      
-      // Update active button
-      filterButtons.forEach(btn => btn.classList.remove('bg-blue-600', 'text-white'));
-      this.classList.add('bg-blue-600', 'text-white');
-      
-      // Filter packages
-      packageCards.forEach(card => {
-        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('show');
+    });
+  }
+
+  // Close mobile menu when a link is clicked
+  document.querySelectorAll('#mobile-menu a').forEach(item => {
+    item.addEventListener('click', () => {
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu) {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('show');
+      }
     });
   });
-});
 
-// Live Chat functions
-function showLiveChat() {
-  document.getElementById('liveChatModal').style.display = 'block';
-}
+  // Search Suggestion for "Tujuan" input
+  const destinations = [
+    "Gili Trawangan", "Senggigi", "Kuta Lombok", "Mandalika", 
+    "Sembalun", "Gili Air", "Gili Meno", "Mataram", 
+    "Selong Belanak", "Desa Sade", "Pink Beach", "Air Terjun Sendang Gile",
+    "Tiu Kelep", "Pantai Mawun", "Taman Narmada"
+  ];
 
-function hideLiveChat() {
-  document.getElementById('liveChatModal').style.display = 'none';
-}
+  function showSuggestions(val) {
+    const list = document.getElementById('suggestion-list');
+    if (!list) return;
+    
+    if (!val.trim()) {
+      list.innerHTML = '';
+      list.style.display = 'none';
+      return;
+    }
+    
+    let filtered = destinations.filter(dest => 
+      dest.toLowerCase().includes(val.toLowerCase())
+    );
+    
+    if (filtered.length > 0) {
+      list.innerHTML = filtered.map(d => 
+        `<li class="px-4 py-2 cursor-pointer hover:bg-blue-100" onclick="selectSuggestion('${d}')">${d}</li>`
+      ).join('');
+      list.style.display = 'block';
+    } else {
+      list.innerHTML = '<li class="px-4 py-2 text-gray-400">Tidak ditemukan</li>';
+      list.style.display = 'block';
+    }
+  }
 
-// Form submission
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  alert('Terima kasih pesan Anda telah terkirim! Kami akan segera menghubungi Anda.');
-  this.reset();
+  window.selectSuggestion = function(txt) {
+    const input = document.getElementById('tujuan');
+    if (input) {
+      input.value = txt;
+    }
+    const list = document.getElementById('suggestion-list');
+    if (list) {
+      list.style.display = 'none';
+    }
+  }
+
+  // Initialize search input event
+  const searchInput = document.getElementById('tujuan');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      showSuggestions(this.value);
+    });
+  }
+
+  // Hide suggestion on clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.search-suggestion')) {
+      const list = document.getElementById('suggestion-list');
+      if (list) {
+        list.style.display = 'none';
+      }
+    }
+  });
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
 });
