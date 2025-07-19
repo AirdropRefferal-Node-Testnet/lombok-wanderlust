@@ -1,0 +1,70 @@
+/* Tambahan style yang tidak bisa di-handle oleh Tailwind */
+.package-card {
+  transition: all 0.3s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.hero-section {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero-bg.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.active-tab {
+  border-bottom: 3px solid #3b82f6;
+  color: #3b82f6;
+}
+
+/* Chat Widget */
+.chat-widget {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+}
+
+.chat-btn {
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+
+.chat-btn:hover {
+  transform: scale(1.1);
+}
+
+.chat-options {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-widget:hover .chat-options {
+  display: flex;
+}
+
+/* Live Chat Modal */
+#liveChatModal {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 300px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
